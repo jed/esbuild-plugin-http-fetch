@@ -17,11 +17,13 @@ let {outputFiles} = await build({
 })
 
 eval(outputFiles[0].text)
-  // expected: <h1>Hello, world!</h1>
-  // actual: <h1>Hello, world!</h1>
+// expected: <h1>Hello, world!</h1>
+// actual: <h1>Hello, world!</h1>
 
 stop()
+```
 
+```js
 // test/hello.jsx
 import {h} from 'https://unpkg.com/preact@10.5.13/dist/preact.module.js'
 import render from 'https://unpkg.com/preact-render-to-string@5.1.19/dist/index.module.js?module'
