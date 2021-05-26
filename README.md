@@ -6,7 +6,7 @@ An esbuild plugin that resolves http(s) modules, for use with browsers and Deno.
 ```js
 // test/index.js
 import {build, stop} from 'https://deno.land/x/esbuild@v0.12.1/mod.js'
-import httpFetch from 'import httpFetch from 'https://deno.land/x/esbuild_plugin_http_fetch@v1.0.2/index.js'
+import httpFetch from 'https://deno.land/x/esbuild_plugin_http_fetch@v1.0.2/index.js'
 
 let {outputFiles} = await build({
   bundle: true,
