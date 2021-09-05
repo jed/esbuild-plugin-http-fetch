@@ -34,8 +34,8 @@ let loadSource = async ({path}) => {
     contents = contents.replace(pattern, comment)
   }
 
-  let {pathname} = new URL(source.url)
-  let loader = pathname.match(/[^.]+$/)[0]
+  let [contentType] = source.headers.get("content-type")?.split(";") || [];
+  let loader = loaderMap[contentType] || "default";
 
   return {contents, loader}
 }
@@ -51,5 +51,12 @@ let loadMap = async url => {
     reader.readAsDataURL(blob)
   })
 }
+
+let loaderMap = {
+  "application/javascript": "js",
+  "application/json": "json",
+  "text/plain": "text",
+  "text/css": "css",
+};
 
 export default {name, setup}
